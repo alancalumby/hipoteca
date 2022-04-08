@@ -19,3 +19,9 @@ class Hipoteca:
     
     def valor_financiado(self):
         return (self.valor_casa - self.valor_entrada) + (self.valor_casa * self.tabelaSeguro.calcular_percentual_seguro(self.percentual_entrada()) / 100)
+
+    def calcular_percentual_seguro(self):
+        return self.tabelaSeguro.calcular_percentual_seguro(self.percentual_entrada())
+
+    def calcular_valor_seguro(self):
+        return self.tabelaSeguro.calcular_percentual_seguro(self.calcular_percentual_seguro()) / 100  * self.valor_casa

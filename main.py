@@ -12,6 +12,7 @@ hipoteca = hipoteca.Hipoteca(cfg.valor_casa, cfg.valor_entrada, tabelaSeguro, tv
 print('Valor da casa: ' + str(hipoteca.valor_casa))
 print('Valor da entrada: ' + str(hipoteca.valor_entrada))
 print('Percentual da entrada: ' + str(hipoteca.percentual_entrada()))
-print('Percentual do seguro: ' + str(tabelaSeguro.calcular_percentual_seguro(hipoteca.percentual_entrada())))
+print('Percentual do seguro: ' + str(hipoteca.calcular_percentual_seguro()))
+print('Valor do seguro: ' + str(hipoteca.calcular_valor_seguro()))
 print('Percentual do imposto TVQ: ' + str(tvq))
 print('Valor financiado: ' + str(hipoteca.valor_financiado()))
