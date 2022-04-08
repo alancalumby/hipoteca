@@ -3,8 +3,6 @@ import configparser
 class Configuracao:
 
     ARQUIVO_CFG = 'config.ini'
-    #valor_entrada = 0
-    #valor_casa = 0    
 
     def ler_config(self):
         config = configparser.ConfigParser()
@@ -23,3 +21,4 @@ class Configuracao:
         self.aliquota_nivel_2 = float(cfg['TABELA_SEGURO']['aliquota_nivel_2'])
         self.aliquota_nivel_3 = float(cfg['TABELA_SEGURO']['aliquota_nivel_3'])
         self.aliquota_nivel_4 = float(cfg['TABELA_SEGURO']['aliquota_nivel_4'])
+        self.percentual_tvq = float(cfg['IMPOSTO']['percentual_tvq'])
