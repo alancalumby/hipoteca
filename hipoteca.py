@@ -1,9 +1,10 @@
 class Hipoteca:
 
-    def __init__(self, valor_casa, valor_entrada, tabelaSeguro):
+    def __init__(self, valor_casa, valor_entrada, tabelaSeguro, tvq):
         self.valor_casa = valor_casa
         self.valor_entrada = valor_entrada
         self.tabelaSeguro = tabelaSeguro
+        self.tvq = tvq
         
         self.validar_config()     
 
@@ -15,3 +16,6 @@ class Hipoteca:
 
     def percentual_entrada(self):
         return (self.valor_entrada / self.valor_casa) * 100
+    
+    def valor_financiado(self):
+        return (self.valor_casa - self.valor_entrada) + (self.valor_casa * self.tabelaSeguro.calcular_percentual_seguro(self.percentual_entrada()) / 100)
