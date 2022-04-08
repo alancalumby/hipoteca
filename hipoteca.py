@@ -14,10 +14,10 @@ class Hipoteca:
         elif (self.valor_entrada / self.valor_casa < 0.05):
             print('percentual de entrada eh inferior a 5%')
 
-    def percentual_entrada(self):
+    def calcular_percentual_entrada(self):
         return (self.valor_entrada / self.valor_casa) * 100
     
-    def valor_financiado(self):
+    def calcular_valor_financiado(self):
         return (self.valor_casa - self.valor_entrada) + (self.valor_casa * self.tabelaSeguro.calcular_percentual_seguro(self.percentual_entrada()) / 100)
 
     def calcular_percentual_seguro(self):
