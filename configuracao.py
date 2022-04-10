@@ -2,14 +2,13 @@ import configparser
 
 class Configuracao:
 
-    ARQUIVO_CFG = 'config.ini'
-
     def ler_config(self):
         config = configparser.ConfigParser()
-        config.read(self.ARQUIVO_CFG)
+        config.read(self.arquivo)
         return config
 
-    def __init__(self):
+    def __init__(self, arquivo):        
+        self.arquivo = arquivo
         cfg = self.ler_config()
         self.valor_entrada = float(cfg['GERAL']['valor_entrada'])
         self.valor_casa = float(cfg['GERAL']['valor_casa'])

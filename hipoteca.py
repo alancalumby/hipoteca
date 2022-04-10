@@ -28,4 +28,4 @@ class Hipoteca:
         return self.tabelaSeguro.calcular_percentual_seguro(self.calcular_percentual_entrada())
 
     def calcular_valor_seguro(self):
-        return self.calcular_percentual_seguro() / 100  * self.valor_casa
+        return self.calcular_percentual_seguro() / 100  * (self.valor_casa - self.valor_entrada)

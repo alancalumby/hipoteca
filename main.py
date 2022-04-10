@@ -2,7 +2,7 @@ import hipoteca
 import configuracao
 import tabelaseguro
 
-cfg = configuracao.Configuracao()
+cfg = configuracao.Configuracao('config.ini')
 
 tabelaSeguro = tabelaseguro.TabelaSeguro(cfg.percentual_nivel_1, cfg.percentual_nivel_2, cfg.percentual_nivel_3, cfg.percentual_nivel_4, cfg.aliquota_nivel_1, cfg.aliquota_nivel_2, cfg.aliquota_nivel_3, cfg.aliquota_nivel_4)
 tvq = cfg.percentual_tvq
