@@ -19,7 +19,7 @@ class Hipoteca:
         return (self.valor_entrada / self.valor_casa) * 100
     
     def calcular_valor_financiado(self):
-        return (self.valor_casa - self.valor_entrada) + (self.calcular_valor_seguro()) + (self.calcular_valor_imposto_tvq())
+        return (self.valor_casa - self.valor_entrada) + (self.calcular_valor_seguro())# + (self.calcular_valor_imposto_tvq())
 
     def calcular_valor_imposto_tvq(self):
         return self.calcular_valor_seguro() * self.tvq / 100

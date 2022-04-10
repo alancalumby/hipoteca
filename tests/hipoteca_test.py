@@ -39,10 +39,10 @@ class TestHipoteca(unittest.TestCase):
         self.valor_imposto_tvq_3 = ((self.valor_casa - self.valor_entrada_03)  * self.aliquota_nivel_1 / 100) * self.tvq_valida / 100
         self.valor_imposto_tvq_4 = ((self.valor_casa - self.valor_entrada_04)  * self.aliquota_nivel_3 / 100) * self.tvq_valida / 100
 
-        self.valor_financiado_1 = (self.valor_casa - self.valor_entrada_01) + (self.valor_seguro_1) + (self.valor_imposto_tvq_1)
-        self.valor_financiado_2 = (self.valor_casa - self.valor_entrada_02) + (self.valor_seguro_2) + (self.valor_imposto_tvq_2)
-        self.valor_financiado_3 = (self.valor_casa - self.valor_entrada_03) + (self.valor_seguro_3) + (self.valor_imposto_tvq_3)
-        self.valor_financiado_4 = (self.valor_casa - self.valor_entrada_04) + (self.valor_seguro_4) + (self.valor_imposto_tvq_4)
+        self.valor_financiado_1 = (self.valor_casa - self.valor_entrada_01) + (self.valor_seguro_1)
+        self.valor_financiado_2 = (self.valor_casa - self.valor_entrada_02) + (self.valor_seguro_2)
+        self.valor_financiado_3 = (self.valor_casa - self.valor_entrada_03) + (self.valor_seguro_3)
+        self.valor_financiado_4 = (self.valor_casa - self.valor_entrada_04) + (self.valor_seguro_4)
 
         self.tabelaSeguro       = tabelaseguro.TabelaSeguro(self.percentual_nivel_1, self.percentual_nivel_2, self.percentual_nivel_3, self.percentual_nivel_4, self.aliquota_nivel_1, self.aliquota_nivel_2, self.aliquota_nivel_3, self.aliquota_nivel_4)
        
