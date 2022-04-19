@@ -37,6 +37,11 @@ class Hipoteca:
     def calcular_valor_seguro(self):
         return self.calcular_percentual_seguro() / 100  * (self.valor_casa - self.valor_entrada)
 
+    #def calcular_valor_parcela(self):
+        #return (self.calcular_valor_financiado() * ((1 + (self.taxa_juros / 100)) ** (25))) / (25*12)
+        #return ((self.valor_casa-self.valor_entrada) * ((1 + (self.taxa_juros / 100)) ** (25)))# / (25*12)
+    #    return 320000.0 * (1.018** (25.0)) 
+
     def relatorio(self):
         print('##########################################################')
         print(self.descricao)
@@ -51,3 +56,4 @@ class Hipoteca:
         print('Percentual do imposto TVQ (F): ' + str(self.tvq) + '%')
         print('Valor do imposto TVQ (G = E * F): ' + str(self.calcular_valor_imposto_tvq()))
         print('Valor financiado (H = C + E): ' + str(self.calcular_valor_financiado()))
+        print('Parcela: ' + str(self.calcular_valor_parcela()))
