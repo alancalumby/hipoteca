@@ -9,7 +9,7 @@ class Hipoteca:
         self.validar_config()     
 
     def validar_config(self):
-        
+
         if (self.valor_entrada > self.valor_casa):
             raise ValueError('valor da entrada eh maior do que o valor da casa')
         elif (self.valor_entrada / self.valor_casa < 0.05):
@@ -32,3 +32,17 @@ class Hipoteca:
 
     def calcular_valor_seguro(self):
         return self.calcular_percentual_seguro() / 100  * (self.valor_casa - self.valor_entrada)
+
+    def relatorio(self):
+        print('##########################################################')
+        print(self.descricao)
+        print('##########################################################')
+        print('Valor da casa (A): ' + str(self.valor_casa))
+        print('Valor da entrada (B): ' + str(self.valor_entrada) + ' (' + str(self.calcular_percentual_entrada()) + ' %)')
+        print('----------------------------------------------------------')
+        print('Valor de base de calculo (C = A - B): ' + str(self.valor_casa - self.valor_entrada) )
+        print('Percentual do seguro (D): ' + str(self.calcular_percentual_seguro()) + '%')
+        print('Valor do seguro (E = C * D): ' + str(self.calcular_valor_seguro()))
+        print('Percentual do imposto TVQ (F): ' + str(self.tvq) + '%')
+        print('Valor do imposto TVQ (G = E * F): ' + str(self.calcular_valor_imposto_tvq()))
+        print('Valor financiado (H = C + E): ' + str(self.calcular_valor_financiado()))
