@@ -8,5 +8,5 @@ tabelaSeguro = tabelaseguro.TabelaSeguro(cfg.percentual_nivel_1, cfg.percentual_
 cenarios = Cenarios()
 
 for cenario in cenarios.cenarios:
-    hipoteca = Hipoteca(cenario.descricao, cenario.valor_casa, cenario.valor_entrada, tabelaSeguro, cenario.percentual_tvq)
+    hipoteca = Hipoteca(cenario.descricao, cenario.valor_casa, cenario.valor_entrada, tabelaSeguro, cenario.percentual_tvq, cenario.taxa_juros)
     hipoteca.relatorio()

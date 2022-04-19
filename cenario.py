@@ -9,3 +9,4 @@ class Cenario(ArquivoConfiguracao):
         self.valor_entrada = float(cfg['GERAL']['valor_entrada'])
         self.valor_casa = float(cfg['GERAL']['valor_casa'])
         self.percentual_tvq = float(cfg['IMPOSTO']['percentual_tvq'])
+        self.taxa_juros = float(cfg['GERAL']['taxa_juros'])
