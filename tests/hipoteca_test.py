@@ -6,6 +6,7 @@ class TestHipoteca(unittest.TestCase):
 
     def setUp(self):
         
+        self.descricao          = 'teste'
         self.tvq_valida         = 9.0
         self.tvq_invalida_01    = 999.0
         self.tvq_invalida_02    = -9.0
@@ -46,10 +47,10 @@ class TestHipoteca(unittest.TestCase):
 
         self.tabelaSeguro       = tabelaseguro.TabelaSeguro(self.percentual_nivel_1, self.percentual_nivel_2, self.percentual_nivel_3, self.percentual_nivel_4, self.aliquota_nivel_1, self.aliquota_nivel_2, self.aliquota_nivel_3, self.aliquota_nivel_4)
        
-        self.hipoteca_valida_01 = hipoteca.Hipoteca(self.valor_casa, self.valor_entrada_01, self.tabelaSeguro, self.tvq_valida)
-        self.hipoteca_valida_02 = hipoteca.Hipoteca(self.valor_casa, self.valor_entrada_02, self.tabelaSeguro, self.tvq_valida)
-        self.hipoteca_valida_03 = hipoteca.Hipoteca(self.valor_casa, self.valor_entrada_03, self.tabelaSeguro, self.tvq_valida)
-        self.hipoteca_valida_04 = hipoteca.Hipoteca(self.valor_casa, self.valor_entrada_04, self.tabelaSeguro, self.tvq_valida)        
+        self.hipoteca_valida_01 = hipoteca.Hipoteca(self.descricao, self.valor_casa, self.valor_entrada_01, self.tabelaSeguro, self.tvq_valida)
+        self.hipoteca_valida_02 = hipoteca.Hipoteca(self.descricao, self.valor_casa, self.valor_entrada_02, self.tabelaSeguro, self.tvq_valida)
+        self.hipoteca_valida_03 = hipoteca.Hipoteca(self.descricao, self.valor_casa, self.valor_entrada_03, self.tabelaSeguro, self.tvq_valida)
+        self.hipoteca_valida_04 = hipoteca.Hipoteca(self.descricao, self.valor_casa, self.valor_entrada_04, self.tabelaSeguro, self.tvq_valida)        
         
     def test_init(self):
         self.assertEqual(self.hipoteca_valida_01.valor_casa, self.valor_casa)
@@ -60,22 +61,22 @@ class TestHipoteca(unittest.TestCase):
     def test_validar_config_01(self):
         with self.assertRaises(ValueError):
             # entrada menor que 5%
-            self.hipoteca_invalida_01 = hipoteca.Hipoteca(self.valor_casa, self.valor_entrada_invalida_02, self.tabelaSeguro, self.tvq_valida)
+            self.hipoteca_invalida_01 = hipoteca.Hipoteca(self.descricao, self.valor_casa, self.valor_entrada_invalida_02, self.tabelaSeguro, self.tvq_valida)
     
     def test_validar_config_02(self):
         with self.assertRaises(ValueError):
             #entrada maior que valor da casa
-            self.hipoteca_invalida_01 = hipoteca.Hipoteca(self.valor_casa, self.valor_entrada_invalida_01, self.tabelaSeguro, self.tvq_valida)
+            self.hipoteca_invalida_01 = hipoteca.Hipoteca(self.descricao, self.valor_casa, self.valor_entrada_invalida_01, self.tabelaSeguro, self.tvq_valida)
     
     def test_validar_config_03(self):
         with self.assertRaises(ValueError):
             #tvq maior que 100
-            self.hipoteca_invalida_01 = hipoteca.Hipoteca(self.valor_casa, self.valor_entrada_04, self.tabelaSeguro, self.tvq_invalida_01)
+            self.hipoteca_invalida_01 = hipoteca.Hipoteca(self.descricao, self.valor_casa, self.valor_entrada_04, self.tabelaSeguro, self.tvq_invalida_01)
 
     def test_validar_config_04(self):
         with self.assertRaises(ValueError):
             #tvq menor do que zero
-            self.hipoteca_invalida_01 = hipoteca.Hipoteca(self.valor_casa, self.valor_entrada_04, self.tabelaSeguro, self.tvq_invalida_02)
+            self.hipoteca_invalida_01 = hipoteca.Hipoteca(self.descricao, self.valor_casa, self.valor_entrada_04, self.tabelaSeguro, self.tvq_invalida_02)
 
     def test_calcular_percentual_entrada(self):
         self.assertEqual(self.hipoteca_valida_01.calcular_percentual_entrada(), self.percentual_entrada_1)

@@ -1,6 +1,7 @@
 class Hipoteca:
 
-    def __init__(self, valor_casa, valor_entrada, tabelaSeguro, tvq):
+    def __init__(self, descricao, valor_casa, valor_entrada, tabelaSeguro, tvq):
+        self.descricao = descricao
         self.valor_casa = valor_casa
         self.valor_entrada = valor_entrada
         self.tabelaSeguro = tabelaSeguro
@@ -8,11 +9,13 @@ class Hipoteca:
         self.validar_config()     
 
     def validar_config(self):
+        
         if (self.valor_entrada > self.valor_casa):
             raise ValueError('valor da entrada eh maior do que o valor da casa')
         elif (self.valor_entrada / self.valor_casa < 0.05):
             raise ValueError('percentual de entrada eh inferior a 5%')
-        elif (self.tvq > 100.0 or self.tvq < 0.0):
+
+        if (self.tvq > 100.0 or self.tvq < 0.0):
             raise ValueError('tvq deve ser entre 0 e 100')
 
     def calcular_percentual_entrada(self):

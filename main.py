@@ -1,12 +1,14 @@
 import hipoteca
-import configuracao
+from configuracao_geral import ConfiguracaoGeral
+from cenario import Cenario
 import tabelaseguro
 
-cfg = configuracao.Configuracao('config.ini')
+cfg = ConfiguracaoGeral('config.ini')
+cenario = Cenario('cenario_01.ini')
 
 tabelaSeguro = tabelaseguro.TabelaSeguro(cfg.percentual_nivel_1, cfg.percentual_nivel_2, cfg.percentual_nivel_3, cfg.percentual_nivel_4, cfg.aliquota_nivel_1, cfg.aliquota_nivel_2, cfg.aliquota_nivel_3, cfg.aliquota_nivel_4)
-tvq = cfg.percentual_tvq
-hipoteca = hipoteca.Hipoteca(cfg.valor_casa, cfg.valor_entrada, tabelaSeguro, tvq)
+tvq = cenario.percentual_tvq
+hipoteca = hipoteca.Hipoteca(cenario.descricao, cenario.valor_casa, cenario.valor_entrada, tabelaSeguro, tvq)
 
 print('----------------------------------------------------------')
 print('Valor da casa (A): ' + str(hipoteca.valor_casa))
